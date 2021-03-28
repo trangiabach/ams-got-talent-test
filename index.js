@@ -466,20 +466,13 @@ var hasClick = false;
 var menuTL = gsap.timeline()
 function openMenu() {
     $(".menu").click(function() {
-        var path = {
-            "/index.html" : "#home-re",
-            "/about.html" : "#about-re",
-            "/participants.html" : "#participants-re",
-            "/sponsors.html": "#sponsors-re",
-            "/history.html" : "#history-re"
-        }
         if(hasClick == false) {
             $(".title").css("mix-blend-mode", "normal")
             $(".menu").css("mix-blend-mode", "normal")
             console.log(path[window.location.pathname])
-            $(path[window.location.pathname]).css("color", "#E4380A")
-            $(path[window.location.pathname]).append("<span class = 'pointer-location'><span class = 'pointer-location-slash'>&nbsp;/</span>you are here</span>")
-            $(path[window.location.pathname]).css("pointer-events", "none")
+            $("#home-re").css("color", "#E4380A")
+            $("#home-re").append("<span class = 'pointer-location'><span class = 'pointer-location-slash'>&nbsp;/</span>you are here</span>")
+            $("#home-re").css("pointer-events", "none")
             $(".menu").css("pointer-events", "none")
             setTimeout(function() {$(".menu").css("pointer-events", "all")}, 2500)
             $(".menu-full").addClass("menu-full-background")
