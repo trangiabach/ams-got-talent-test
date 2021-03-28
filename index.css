@@ -29,7 +29,7 @@ body::-webkit-scrollbar {
 
 body {
     width: 100vw;
-    background-color: white;
+    background-color: transparent;
     overflow-x: hidden;
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;/* Firefox */

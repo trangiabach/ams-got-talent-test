@@ -337,6 +337,10 @@
         top: 20%;
     }
 
+    .event-stroke {
+        border: 1px solid #E4380A;
+    }
+
     .know-more {
         font-size: 11vw;
         top:45%;
@@ -455,41 +459,44 @@
 
     .agt-circle {
         top: 40%;
-        left: 21%;
-        width: 60vw;
+        left: 16%;
+        width: 70vw;
         height: 10vw;
+        border: 1px solid #E4380A;
     }
 
     .agt-circle span {
         position: relative;
-        font-size: 6vw;
-        top: 9%;
+        font-size: 6.3vw;
+        top: 5%;
     }
 
     .agt-season {
         top: 54%;
-        left: 35%;
-        width: 30vw;
+        left: 32%;
+        width: 35vw;
         height: 10vw;
+        border: 1px solid #239bba;
     }
 
     .agt-season span {
         position: relative;
-        top: 7%;
+        top: 4%;
         font-size: 6.8vw;
     }
 
     .agt-name {
-        width: 64vw;
+        width: 69vw;
         height: 10vw;
         top: 47%;
-        left: 19%;
+        left: 16%;
+        border: 1px solid #5c2dbe;
     }
 
     .agt-name span {
         font-size: 6.8vw;
         position: relative;
-        top: 6%;
+        top: 3%;
     }
 
     .contact-href {
@@ -497,7 +504,7 @@
         font-size: 8vw;
         white-space: pre;
         line-height: 12vw;
-        left: -14%;
+        left: -16%;
         text-align: center;
     }
 
@@ -512,12 +519,12 @@
     }
 
     .menu-items {
-        top: 13%;
+        top: 12%;
     }
     
     .menu-item {
-        font-size: 12vw;
-        line-height: 22vw;
+        font-size: 11vw;
+        line-height: 21vw;
     }
 
     .pointer-location {

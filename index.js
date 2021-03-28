@@ -266,7 +266,7 @@ var sceneThree = new ScrollMagic.Scene({
 .addTo(controller);
 
 var sceneFour = new ScrollMagic.Scene({
-    triggerElement: ".section-3-nav",
+    triggerElement: ".know-more-header",
     triggerHook: 0.9
 })
 .setTween(sectionThreeTl)
