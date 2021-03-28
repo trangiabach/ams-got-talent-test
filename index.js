@@ -469,7 +469,6 @@ function openMenu() {
         if(hasClick == false) {
             $(".title").css("mix-blend-mode", "normal")
             $(".menu").css("mix-blend-mode", "normal")
-            console.log(path[window.location.pathname])
             $("#home-re").css("color", "#E4380A")
             $("#home-re").append("<span class = 'pointer-location'><span class = 'pointer-location-slash'>&nbsp;/</span>you are here</span>")
             $("#home-re").css("pointer-events", "none")
