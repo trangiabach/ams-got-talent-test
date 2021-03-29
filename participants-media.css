@@ -1,0 +1,177 @@
+@media only screen and (max-width: 1222px) {
+    .wrapper {
+        height: 195vw;
+    }
+}
+
+@media only screen and (max-width: 1201px) {
+    .members {
+        font-size: 6.4rem;
+    }
+
+    .wrapper {
+        height: 199vw;
+    }
+}
+
+@media only screen and (max-width: 1170px) {
+    .members {
+        font-size: 6.2rem;
+    }
+
+    .wrapper {
+        height: 203vw;
+    }
+}
+
+@media only screen and (max-width: 1150px) {
+    .members {
+        font-size: 6rem;
+    }
+
+    .wrapper {
+        height: 210vw;
+    }
+}
+
+@media only screen and (max-width: 1120px) {
+    .members {
+        font-size: 5.8rem;
+    }
+
+    .wrapper {
+        height: 220vw;
+    }
+}
+
+@media only screen and (max-width: 1070px) {
+    .members {
+        font-size: 5.6rem;
+    }
+
+    .wrapper {
+        height: 230vw;
+    }
+}
+
+@media only screen and (max-width: 1040px) {
+    .members {
+        font-size: 5.4rem;
+    }
+
+    .wrapper {
+        height: 230vw;
+    }
+}
+
+@media only screen and (max-width: 1016px) {
+    .members {
+        font-size: 5.2rem;
+    }
+
+    .wrapper {
+        height: 240vw;
+    }
+}
+
+@media only screen and (max-width: 981px) {
+    .members {
+        font-size: 5rem;
+    }
+
+    .wrapper {
+        height: 250vw;
+    }
+}
+
+
+@media only screen and (max-width: 940px) {
+    .members {
+        font-size: 4.8rem;
+    }
+
+    .wrapper {
+        height: 260vw;
+    }
+}
+
+@media only screen and (max-width: 915px) {
+    .members {
+        font-size: 4.5rem;
+    }
+
+    .wrapper {
+        height: 270vw;
+    }
+
+}
+
+@media only screen and (max-width: 890px) {
+    .members {
+        font-size: 4.3rem;
+    }
+
+    .wrapper {
+        height: 280vw;
+    }
+
+}
+
+@media only screen and (max-width: 870px) {
+    .members {
+        font-size: 4.1rem;
+    }
+
+    .wrapper {
+        height: 290vw;
+    }
+}
+
+@media only screen and (max-width: 416px) {
+
+    .title {
+        font-size: 4rem;
+        left: 3.5rem;   
+    }
+
+    .menu {
+        top: 70%;
+        left: 75%;
+        border: none;
+        font-size: 3.5rem;
+    }
+
+    .XIII {
+        opacity: 0;
+        top: 68%;
+        font-size: 3.5rem;
+    }
+
+    .members {
+        top: 22rem;
+        font-size: 3.8rem;
+    }
+
+    #part-intro {
+        position: relative;
+        top: -5rem;
+        font-size: 2.5rem;
+    }
+    .members ul li {
+        margin: -120px 0;
+    }
+
+    .nav-to-other-abouts {
+        font-size: 4rem;
+        top:100rem;
+    }
+
+
+    .wrapper {
+        position: relative;
+        left: 0rem;
+        height: 600vw;
+    }
+
+}
+
