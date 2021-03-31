@@ -1,3 +1,4 @@
+window.onload = function() {
 var scroll = new LocomotiveScroll({
     el: document.querySelector('[data-scroll-container]'),
     smooth: true,
@@ -18,43 +19,14 @@ window.mobileAndTabletCheck = function() {
 
 
 var timeout = 9000;
-$(document).ready(function() {
-    $(window).load(function() {
-        if ( ! sessionStorage.getItem( 'doNotShow' ) ) {
-            sessionStorage.setItem( 'doNotShow', true );
-            loadingAni()
-        } else {
-            $(".loading-screen").css("z-index", "-1")
-           $(".loading-screen").css("opacity", "0");
-           timeout = 0
-        }
-    });
-});
 
 function loadingAni() {
-    var loadNum = document.querySelector(".loading-percent").innerHTML
-    var newloadNum = loadNum.replace("'", "")
-    var num = parseInt(newloadNum)
-    var loadTL = gsap.timeline();
-    loadTL.to(".loading-percent", 5, {color: "#E4380A", ease: Power4.easeOut})
-    setInterval(
-        function() {
-            if(num<100) {
-            $(".load-quote span").css("opacity", 0)
-            num = num + 1
-            newloadNum = "'" + num.toString()
-            document.querySelector(".loading-percent").innerHTML = newloadNum
-            }
-            else {
-                var loadTL1 = gsap.timeline();
-                loadTL1.to(".loading-percent", 2, {opacity:0, ease: Power4.easeOut})
-                loadTL1.to(".load-quote span", 2, {opacity:1,stagger: 0.15, ease: Power4.easeOut})
-                loadTL1.to(".loading-screen", 2, {top: "-100%", opacity:0, borderRadius: "80px" ,ease:Power4.easeOut, onComplete: function(){
-                $(".loading-screen").css("z-index", "-1")
-                }})
-            }
-        }, 50
-    )
+    var loadTl = gsap.timeline()
+    loadTl.from(".load-quote span", 2, {opacity:0, stagger: 0.2, ease: Power4.easeOut})
+    .to(".loading-screen",2, {opacity:0, ease: Power4.easeOut, onComplete: function() {
+        $(".loading-screen").css("z-index", "-1")
+        $(".load-quote span").css("z-index", "-1")
+    }})
 }
 
 
@@ -107,12 +79,11 @@ var sceneOne = new ScrollMagic.Scene({
     triggerHook: 0.9
 })
 .on('start', function () {
-    window.addEventListener("load", function() {
-        setTimeout(function() {
-            timelineOne();
-            svgSectionOne();
-        },timeout)
-    })
+    loadingAni()
+    setTimeout(function() {
+        timelineOne();
+        svgSectionOne();
+    },2000)
 })
 .addTo(controller);
 
@@ -356,85 +327,87 @@ var svgLarge;
 var i = 0;
 var jsvg;
 function sectionThreeSVG() {
-    $(".section-3-rows a").hover(
-        function() {
-            $(".section-3-nav-header").addClass("section-3-header-ani")
-            $(".section-3-nav-header-hand").css("opacity", "0")
-            if($(this).text() == "About") {
-                var id =  "svg-to-animate-about";
-                var svgID = "section-3-about-svg-large";
-                $(".section-3-nav-title").text("WHO ARE WE?")
-                var hoverTL = gsap.timeline();
-                hoverTL.to(".section-3-nav-title-circle-yellow", 2.5, {top: "-26vw", left: "43vw", ease: Power4.easeOut})
-                hoverTL.to(".section-3-nav-title-circle-blue", 2.5, {left: "56.5vw", top:"-9vw", ease: Power4.easeOut},0)
-            }
-            else if($(this).text() == "History") {
-                var id =  "svg-to-animate-history";
-                var svgID = "section-3-history-svg-large";
-                $(".section-3-nav-title").text("13 YEARS IN THE MAKING!")
-                var hoverTL = gsap.timeline();
-                hoverTL.to(".section-3-nav-title-circle-yellow", 2.5, {top: "-27.5vw", left: "48.5vw", ease: Power4.easeOut})
-                hoverTL.to(".section-3-nav-title-circle-blue", 2.5, {left: "47vw", top:"-6vw", ease: Power4.easeOut},0)
-            }
-            else if($(this).text() == "Sponsors") {
-                var id =  "svg-to-animate-sponsors";
-                var svgID = "section-3-sponsors-svg-large";
-                $(".section-3-nav-title").text("SUPPORT US!")
-                var hoverTL = gsap.timeline();
-                hoverTL.to(".section-3-nav-title-circle-yellow", 2.5, {top: "-15vw", left: "70vw", ease: Power4.easeOut})
-                hoverTL.to(".section-3-nav-title-circle-blue", 2.5, {left: "25vw", top:"-15vw", ease: Power4.easeOut},0)
-            }
-            else if($(this).text() == "Contacts"){
-                var id =  "svg-to-animate-contacts";
-                var svgID = "section-3-contact-svg-large";
-                $(".section-3-nav-title").text("LET'S DO THIS TOGETHER!")
-                var hoverTL = gsap.timeline();
-                hoverTL.to(".section-3-nav-title-circle-yellow", 2.5, {top: "-10vw", left: "53vw", ease: Power4.easeOut})
-                hoverTL.to(".section-3-nav-title-circle-blue", 2.5, {left: "42vw", top:"-20vw", ease: Power4.easeOut},0)
-            }
-            $(this).parent().find(".section-3-svg").attr("id", id);
-            $(this).parent().find(".section-3-svg").css("transition", "")
-            $(this).parent().find(".section-3-svg").css("opacity", "1")
-            $(".section-3-nav-title").css("transition", "opacity 0.5s ease")
-            $(this).parent().find("svg").css("opacity", "1")
-            $(".section-3-nav-title").css("opacity", "1")
-            jsvg = "#" + svgID;
-            $(jsvg).css("opacity", "1")
-            svg = new Vivus(id,
-            {
-            type: 'oneByOne', 
-            duration: 400,
-            animTimingFunction: Vivus.EASE_OUT
-            })
-            svgLarge = new Vivus(svgID,
-            {
-                type: 'sync', 
-                duration: 600,
+    if(window.mobileAndTabletCheck() == false) {
+        $(".section-3-rows a").hover(
+            function() {
+                $(".section-3-nav-header").addClass("section-3-header-ani")
+                $(".section-3-nav-header-hand").css("opacity", "0")
+                if($(this).text() == "About") {
+                    console.log(1)
+                    var id =  "svg-to-animate-about";
+                    var svgID = "section-3-about-svg-large";
+                    $(".section-3-nav-title").text("WHO ARE WE?")
+                    var hoverTL = gsap.timeline();
+                    hoverTL.to(".section-3-nav-title-circle-yellow", 2.5, {top: "-26vw", left: "43vw", ease: Power4.easeOut})
+                    hoverTL.to(".section-3-nav-title-circle-blue", 2.5, {left: "56.5vw", top:"-9vw", ease: Power4.easeOut},0)
+                }
+                else if($(this).text() == "History") {
+                    var id =  "svg-to-animate-history";
+                    var svgID = "section-3-history-svg-large";
+                    $(".section-3-nav-title").text("13 YEARS IN THE MAKING!")
+                    var hoverTL = gsap.timeline();
+                    hoverTL.to(".section-3-nav-title-circle-yellow", 2.5, {top: "-27.5vw", left: "48.5vw", ease: Power4.easeOut})
+                    hoverTL.to(".section-3-nav-title-circle-blue", 2.5, {left: "47vw", top:"-6vw", ease: Power4.easeOut},0)
+                }
+                else if($(this).text() == "Sponsors") {
+                    var id =  "svg-to-animate-sponsors";
+                    var svgID = "section-3-sponsors-svg-large";
+                    $(".section-3-nav-title").text("SUPPORT US!")
+                    var hoverTL = gsap.timeline();
+                    hoverTL.to(".section-3-nav-title-circle-yellow", 2.5, {top: "-15vw", left: "70vw", ease: Power4.easeOut})
+                    hoverTL.to(".section-3-nav-title-circle-blue", 2.5, {left: "25vw", top:"-15vw", ease: Power4.easeOut},0)
+                }
+                else if($(this).text() == "Contacts"){
+                    var id =  "svg-to-animate-contacts";
+                    var svgID = "section-3-contact-svg-large";
+                    $(".section-3-nav-title").text("LET'S DO THIS TOGETHER!")
+                    var hoverTL = gsap.timeline();
+                    hoverTL.to(".section-3-nav-title-circle-yellow", 2.5, {top: "-10vw", left: "53vw", ease: Power4.easeOut})
+                    hoverTL.to(".section-3-nav-title-circle-blue", 2.5, {left: "42vw", top:"-20vw", ease: Power4.easeOut},0)
+                }
+                $(this).parent().find(".section-3-svg").attr("id", id);
+                $(this).parent().find(".section-3-svg").css("transition", "")
+                $(this).parent().find(".section-3-svg").css("opacity", "1")
+                $(".section-3-nav-title").css("transition", "opacity 0.5s ease")
+                $(this).parent().find("svg").css("opacity", "1")
+                $(".section-3-nav-title").css("opacity", "1")
+                jsvg = "#" + svgID;
+                $(jsvg).css("opacity", "1")
+                svg = new Vivus(id,
+                {
+                type: 'oneByOne', 
+                duration: 400,
                 animTimingFunction: Vivus.EASE_OUT
-            })
-            svg.play(15);
-            setTimeout(function(){svgLarge.play(20)}, 500)
-        },
-        function() {
-            var hoverTL = gsap.timeline();
-            hoverTL.to(".section-3-nav-title-circle-yellow", 2.5, {top: "-21vw",left: "60vw", ease: Power4.easeOut})
-            hoverTL.to(".section-3-nav-title-circle-blue", 2.5, {top: "-10.9vw",left: "29.5vw", ease: Power4.easeOut},0)
-            $(jsvg).css("opacity", "0")
-            $(".section-3-nav-title").css("transition", "opacity 0.5s ease")
-            $(".section-3-nav-title").css("opacity", "0")
-            $(this).parent().find(".section-3-svg").css("transition", "opacity 0.5s ease")
-            $(this).parent().find(".section-3-svg").css("transition-delay", "1s")
-            $(this).parent().find(".section-3-svg").css("opacity", "0")
-            $(".section-3-nav-header").removeClass("section-3-header-ani")
-            $(".section-3-nav-header-hand").css("opacity", "1")
-            svg.stop().play(-15, function() {
-            })
-            svgLarge.stop().play(-15, function() {
-            })
-            setTimeout(function() {
-                $(this).parent().find(".section-3-svg").css("opacity",0)
-                $(this).parent().find(".section-3-svg-large").css("opacity",0)
-            })
+                })
+                svgLarge = new Vivus(svgID,
+                {
+                    type: 'sync', 
+                    duration: 600,
+                    animTimingFunction: Vivus.EASE_OUT
+                })
+                svg.play(15);
+                setTimeout(function(){svgLarge.play(20)}, 500)
+            },
+            function() {
+                var hoverTL = gsap.timeline();
+                hoverTL.to(".section-3-nav-title-circle-yellow", 2.5, {top: "-21vw",left: "60vw", ease: Power4.easeOut})
+                hoverTL.to(".section-3-nav-title-circle-blue", 2.5, {top: "-10.9vw",left: "29.5vw", ease: Power4.easeOut},0)
+                $(jsvg).css("opacity", "0")
+                $(".section-3-nav-title").css("transition", "opacity 0.5s ease")
+                $(".section-3-nav-title").css("opacity", "0")
+                $(this).parent().find(".section-3-svg").css("transition", "opacity 0.5s ease")
+                $(this).parent().find(".section-3-svg").css("transition-delay", "1s")
+                $(this).parent().find(".section-3-svg").css("opacity", "0")
+                $(".section-3-nav-header").removeClass("section-3-header-ani")
+                $(".section-3-nav-header-hand").css("opacity", "1")
+                svg.stop().play(-15, function() {
+                })
+                svgLarge.stop().play(-15, function() {
+                })
+                setTimeout(function() {
+                    $(this).parent().find(".section-3-svg").css("opacity",0)
+                    $(this).parent().find(".section-3-svg-large").css("opacity",0)
+                })
         }
     )
     $(".section-3-rows a").click(
@@ -445,8 +418,77 @@ function sectionThreeSVG() {
             setTimeout(function() {
                 window.location.href = target
             },1000)
-        }
-    )
+        })
+    }
+    else {
+        $(".section-3-rows a").click(
+            function(e) {
+                $(".section-3-nav-header").addClass("section-3-header-ani")
+                $(".section-3-nav-header-hand").css("opacity", "0")
+                if($(this).text() == "About") {
+                    console.log(1)
+                    var id =  "svg-to-animate-about";
+                    var svgID = "section-3-about-svg-large";
+                    $(".section-3-nav-title").text("WHO ARE WE?")
+                    var hoverTL = gsap.timeline();
+                    hoverTL.to(".section-3-nav-title-circle-yellow", 2.5, {top: "-26vw", left: "43vw", ease: Power4.easeOut})
+                    hoverTL.to(".section-3-nav-title-circle-blue", 2.5, {left: "56.5vw", top:"-9vw", ease: Power4.easeOut},0)
+                }
+                else if($(this).text() == "History") {
+                    var id =  "svg-to-animate-history";
+                    var svgID = "section-3-history-svg-large";
+                    $(".section-3-nav-title").text("13 YEARS IN THE MAKING!")
+                    var hoverTL = gsap.timeline();
+                    hoverTL.to(".section-3-nav-title-circle-yellow", 2.5, {top: "-27.5vw", left: "48.5vw", ease: Power4.easeOut})
+                    hoverTL.to(".section-3-nav-title-circle-blue", 2.5, {left: "47vw", top:"-6vw", ease: Power4.easeOut},0)
+                }
+                else if($(this).text() == "Sponsors") {
+                    var id =  "svg-to-animate-sponsors";
+                    var svgID = "section-3-sponsors-svg-large";
+                    $(".section-3-nav-title").text("SUPPORT US!")
+                    var hoverTL = gsap.timeline();
+                    hoverTL.to(".section-3-nav-title-circle-yellow", 2.5, {top: "-15vw", left: "70vw", ease: Power4.easeOut})
+                    hoverTL.to(".section-3-nav-title-circle-blue", 2.5, {left: "25vw", top:"-15vw", ease: Power4.easeOut},0)
+                }
+                else if($(this).text() == "Contacts"){
+                    var id =  "svg-to-animate-contacts";
+                    var svgID = "section-3-contact-svg-large";
+                    $(".section-3-nav-title").text("LET'S DO THIS TOGETHER!")
+                    var hoverTL = gsap.timeline();
+                    hoverTL.to(".section-3-nav-title-circle-yellow", 2.5, {top: "-10vw", left: "53vw", ease: Power4.easeOut})
+                    hoverTL.to(".section-3-nav-title-circle-blue", 2.5, {left: "42vw", top:"-20vw", ease: Power4.easeOut},0)
+                }
+                $(this).parent().find(".section-3-svg").attr("id", id);
+                $(this).parent().find(".section-3-svg").css("transition", "")
+                $(this).parent().find(".section-3-svg").css("opacity", "1")
+                $(".section-3-nav-title").css("transition", "opacity 0.5s ease")
+                $(this).parent().find("svg").css("opacity", "1")
+                $(".section-3-nav-title").css("opacity", "1")
+                jsvg = "#" + svgID;
+                $(jsvg).css("opacity", "1")
+                svg = new Vivus(id,
+                {
+                type: 'oneByOne', 
+                duration: 400,
+                animTimingFunction: Vivus.EASE_OUT
+                })
+                svgLarge = new Vivus(svgID,
+                {
+                    type: 'sync', 
+                    duration: 600,
+                    animTimingFunction: Vivus.EASE_OUT
+                })
+                svg.play(15);
+                setTimeout(function(){svgLarge.play(20)}, 500)
+                e.preventDefault();
+                var target = e.target.href
+                TweenMax.to(".content", 0.5, {delay: 0.5, opacity:0, ease: Power4.easeOut})
+                setTimeout(function() {
+                    window.location.href = target
+                },10000)
+            })
+        
+    }
 }
 
 sectionThreeSVG();
@@ -618,3 +660,4 @@ window.addEventListener("resize", function() {
     //window.location.reload()
 })
 
+}
