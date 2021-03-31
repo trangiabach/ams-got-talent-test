@@ -155,6 +155,14 @@ function hoverEffect() {
             
         }
     );
+
+    $(".members-div a").click(function(e) {
+        e.preventDefault();
+        var target = e.target.href;
+        setTimeout(function() {
+            window.location.href = target;
+        },5000)
+    })
 }
 
 hoverEffect();

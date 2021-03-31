@@ -1,16 +1,61 @@
 @media only screen and (max-width: 1222px) {
+    .title-menu {
+        font-size: 3rem;
+    }
+
+    .menu {
+        font-size: 1.1rem;
+        width: 3.9rem;
+        height: 3.9rem;
+    }
+
     .wrapper {
         height: 195vw;
     }
+
+    .menu-full {
+        font-size: 5vw;
+    }
+
+    .menu-items {
+        line-height: 9vw;
+    }
+
 }
 
 @media only screen and (max-width: 1201px) {
+    .title-menu {
+        font-size: 2.9rem;
+    }
+
+    .menu {
+        font-size: 1.1rem;
+        width: 3.8rem;
+        height: 3.8rem;
+    }
+
     .members {
         font-size: 6.4rem;
     }
 
     .wrapper {
         height: 199vw;
+    }
+}
+
+@media only screen and (max-width: 1180px) {
+    .title-menu {
+        font-size: 2.8rem;
+    }
+
+    .menu {
+        font-size: 1.1rem;
+        width: 3.7rem;
+        height: 3.7rem;
+    }
+
+    .to-playground {
+        width: 2rem;
     }
 }
 
@@ -61,6 +106,14 @@
 
     .wrapper {
         height: 230vw;
+    }
+
+    .menu-full {
+        font-size: 5.2vw;
+    }
+
+    .menu-items {
+        line-height: 10vw;
     }
 }
 
@@ -125,6 +178,169 @@
     .wrapper {
         height: 290vw;
     }
+
+    .menu-full {
+        font-size: 5.5vw;
+    }
+
+    .menu-items {
+        line-height: 12vw;
+    }
+}
+
+@media only screen and (max-width: 725px) {
+    .intro-text {
+        font-size: 5.8rem;
+        top: 80px;
+    }
+
+    .menu-full {
+        font-size: 8vw;
+    }
+
+    .menu-items {
+        line-height: 13vw;
+    }
+}
+
+@media only screen and (max-width: 685px) {
+    .intro-text {
+        font-size: 5rem;
+        top: 90px;
+    }
+
+    .menu-full {
+        font-size: 8.8vw;
+    }
+
+    .menu-items {
+        line-height: 16vw;
+    }
+
+    .menu-email {
+        font-size: 1.8rem;
+    }
+
+    #menu-email-svg {
+        width: 5rem;
+    }
+
+    .menu-facebook {
+        font-size: 1.8rem;
+    }
+
+    #menu-facebook-svg {
+        width: 7rem;
+    }
+}
+
+
+@media only screen and (max-width: 600px) {
+    .title {
+        font-size: 2.4rem;
+    }
+
+    .menu {
+        font-size: 1rem;
+        width: 3.3rem;
+        height: 3.3rem;
+    }
+
+    .to-playground {
+        width: 1.5rem;
+    }
+
+    .menu-full {
+        font-size: 9.5vw;
+    }
+
+    .menu-items {
+        line-height: 18vw;
+    }
+}
+
+@media only screen and (max-width: 560px) {
+    .intro-text {
+        font-size: 4.5rem;
+        top: 90px;
+    }
+
+    
+    .menu-full {
+        font-size: 10vw;
+    }
+
+    .menu-items {
+        line-height: 18vw;
+    }
+}
+
+@media only screen and (max-width: 525px) {
+    .intro-text {
+        font-size: 4rem;
+        top: 100px;
+    }
+
+    .menu-full {
+        font-size: 11vw;
+    }
+
+    .menu-items {
+        line-height: 18vw;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .intro-text {
+        font-size: 4.5rem;
+        top: 100px;
+    }
+
+    .menu-full {
+        font-size: 11.5vw;
+    }
+
+    .menu-items {
+        line-height: 20vw;
+    }
+}
+
+@media only screen and (max-width: 476px) {
+    .intro-text {
+        font-size: 4.3rem;
+        top: 100px;
+    }
+}
+
+@media only screen and (max-width: 455px) {
+    .intro-text {
+        font-size: 4.1rem;
+        top: 100px;
+    }
+
+    .menu-full {
+        font-size: 12vw;
+    }
+
+    .menu-items {
+        line-height: 22vw;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .title-menu {
+        font-size: 2.4rem;
+    }
+
+    .menu {
+        font-size: 1rem;
+        width: 3.3rem;
+        height: 3.3rem;
+    }
+
+    .to-playground {
+        width: 1.5rem;
+    }
 }
 
 @media only screen and (max-width: 416px) {
@@ -135,7 +351,7 @@
     }
 
     .menu {
-        top: 70%;
+        top: 90%;
         left: 75%;
         border: none;
         font-size: 3.5rem;
@@ -170,7 +386,7 @@
     .wrapper {
         position: relative;
         left: 0rem;
-        height: 600vw;
+        height: 540vw;
     }
 
 }
