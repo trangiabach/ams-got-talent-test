@@ -61,7 +61,10 @@ body {
     top: 40%;
     text-align: center;
     line-height: 5vw;
+}
 
+.load-quote span {
+    opacity: 0;
 }
 
 .title {
