@@ -10,10 +10,18 @@ if(window.mobileAndTabletCheck() == true) {
         "-ms-overflow-style" : "none",  /* IE and Edge */
         "scrollbar-width" : "none" /* Firefox */
     })
+
 }
 var scroll = new LocomotiveScroll({
     el: document.querySelector('[data-scroll-container]'),
-    smooth: true
+    smooth: true,
+    smartphone: {
+        smooth: true
+    },
+    tablet: {
+        smooth: true
+    },
+    smoothMobile:1
 });
 
 var glitchTarget = document.querySelector(".glitchy");
@@ -106,34 +114,35 @@ openMenu()
 
 var menuSVG;
 function menuHover() {
-    const link = document.querySelectorAll('.menu-item span');
-    const cursor = document.querySelector(".menu-cursor")
-    const animateit = function (e) {
-        const div = this.parentElement;
-        const { offsetX: x, offsetY: y } = e,
-        { offsetWidth: width, offsetHeight: height } = this.parentElement,
+    if(window.mobileAndTabletCheck() == false) {
+        const link = document.querySelectorAll('.menu-item span');
+        const cursor = document.querySelector(".menu-cursor")
+        const animateit = function (e) {
+            const div = this.parentElement;
+            const { offsetX: x, offsetY: y } = e,
+            { offsetWidth: width, offsetHeight: height } = this.parentElement,
 
-        move = 80,
-        xMove = x / width * (move * 3) - move,
-        yMove = y / height * (move * 2.5) - move;
+            move = 80,
+            xMove = x / width * (move * 3) - move,
+            yMove = y / height * (move * 2.5) - move;
 
-        div.style.transform = `translate(${xMove}px, ${yMove}px)`;
-        cursor.style.transform = "scale(5.5)"
-        if (e.type === 'mouseleave') {
-            div.style.transform = '';
-            cursor.style.transform = "scale(0)"
-        }
-    };
-    link.forEach(b => b.addEventListener('mousemove', animateit));
-    link.forEach(b => b.addEventListener('mouseleave', animateit));
+            div.style.transform = `translate(${xMove}px, ${yMove}px)`;
+            cursor.style.transform = "scale(5.5)"
+            if (e.type === 'mouseleave') {
+                div.style.transform = '';
+                cursor.style.transform = "scale(0)"
+            }
+        };
+        link.forEach(b => b.addEventListener('mousemove', animateit));
+        link.forEach(b => b.addEventListener('mouseleave', animateit));
 
-    $(document).mousemove(function(e) {
-        $('.menu-cursor').css({
-            left: e.clientX,
-            top: e.clientY 
+        $(document).mousemove(function(e) {
+            $('.menu-cursor').css({
+                left: e.clientX,
+                top: e.clientY 
+            })
         })
-    })
-
+    }
     $(".menu-e-f div").hover(
         function() {
             if($(this).find("span").text() == "email") {
@@ -162,12 +171,18 @@ function menuHover() {
                 })
                 menuSVG.play(15);
             }
+
+            if(window.mobileAndTabletCheck() == true) {
+                setTimeout(function(){menuSVG.stop().play(-15)
+                },600)
+            }
         },
         function() {
             menuSVG.stop().play(-15)
 
         }
     )
+
 
     $(".menu-facebook").click(function() {
         window.location.assign("https://www.facebook.com/agtseasonxiii")

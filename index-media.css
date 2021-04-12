@@ -242,7 +242,7 @@
 
 @media only screen and (max-width: 560px) {
     .intro-text {
-        font-size: 4.5rem;
+        font-size: 4.3rem;
         top: 90px;
     }
 
@@ -389,7 +389,7 @@
         height: 100vh;
     }
     .intro-text {
-        font-size:3.6rem;
+        font-size:3.4rem;
         top: 100px;
     }
 
@@ -797,21 +797,41 @@
    
 }
 
+@media only screen and (max-height: 737px) and (max-width: 668px) {
+    .menu-items {
+        top: 8%;
+    }
+
+    .intro-text {
+        font-size:3.2rem;
+        top: 100px;
+    }
+
+
+    .end-text-stroke {
+        top: -125%;
+        width: 20rem;
+        left: 9%;
+    }
+}
+
+
 
 @media only screen and (max-width: 376px) {
     .intro-text {
-        font-size:3.3rem;
+        font-size:3.4rem;
         top: 100px;
     }
 
     .end-text {
-        top: 60% !important;
-        font-size: 2rem;
+        top: 67% !important;
+        font-size: 1.8rem;
     }
 
     .end-text-stroke {
-        width: 15rem;
-        left: 17%;
+        width: 13rem;
+        left: 23%;
+        top: -110%;
     }
 
     .arrow-down {
@@ -820,7 +840,12 @@
 
 }
 
-@media only screen and (max-height: 670px) {
+@media only screen and (max-height: 670px) and (max-width: 376px) {
+
+    .menu-items {
+        top: 12%;
+    }
+
     .menu-email {
         top: 90%;
         font-size: 1.5rem;
@@ -829,6 +854,17 @@
     .menu-facebook {
         top: 90%;
         font-size: 1.5rem;
+    }
+
+    #menu-email-svg {
+        top: 40%;
+        width: 15vw;
+
+    }
+
+    #menu-facebook-svg {
+        top: 25%;
+        width: 25vw;
     }
 }
 

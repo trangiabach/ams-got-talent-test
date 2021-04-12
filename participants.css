@@ -1,6 +1,7 @@
 html,  body {
     margin:0;
     background: transparent;
+    position: fixed;
 }
 
 @font-face {font-family: "Schnyder Cond M Light"; src: url("//db.onlinewebfonts.com/t/04d799f9fc4bd0a0973b3331ff889f32.eot"); src: url("//db.onlinewebfonts.com/t/04d799f9fc4bd0a0973b3331ff889f32.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/04d799f9fc4bd0a0973b3331ff889f32.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/04d799f9fc4bd0a0973b3331ff889f32.woff") format("woff"), url("//db.onlinewebfonts.com/t/04d799f9fc4bd0a0973b3331ff889f32.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/04d799f9fc4bd0a0973b3331ff889f32.svg#Schnyder Cond M Light") format("svg"); }
@@ -105,7 +106,7 @@ body {
     width: 100vw;
     text-align: center;
     position: absolute;
-    top: 6rem;
+    top: 8%;
     line-height: 7vw;
 }
 
@@ -218,7 +219,7 @@ body {
     font-size: 2.5rem;
     color: #E4380A;
     font-weight: 200;
-    left: 6.5rem;
+    left: 6.3rem;
     top: 4.5%;
     letter-spacing: 2.5px;
     z-index: 100;
@@ -257,10 +258,16 @@ body {
     opacity: 0 !important;
     z-index: 500 !important;
 }
+
+.part-body {
+    height: 100vh;
+}
+
 .wrapper {
     z-index: 100;
-    height: 165vw;
+    height: 350%;
 }
+
 #outerCircleText {
     color: #E4380A;
     position: absolute;
@@ -284,7 +291,7 @@ body {
 }
 
 .participants {
-    height: 150vw;
+    height: 400vw;
 }
 
 
@@ -294,7 +301,7 @@ body {
     font-size: 6.6rem;
     font-weight: 1;
     letter-spacing: 2px;
-    left: 4%;
+    left: 3.5rem;
     width: 85vw;
     top: 12rem;
     z-index: 300;
@@ -337,7 +344,7 @@ body {
     font-size: 5rem;
     color: black;
     position: absolute;
-    top: 126rem;
+    top: 270%;
     left: 0%;
     float: left;
     white-space: nowrap;
