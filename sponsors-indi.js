@@ -1,14 +1,18 @@
-var scroll = new LocomotiveScroll({
-    el: document.querySelector('[data-scroll-container]'),
-    smooth: true,
-    smartphone: {
-        smooth: true
-    },
-    tablet: {
-        smooth: true
-    },
-    smoothMobile:1
-});
+setTimeout(function() {
+    var scroll = new LocomotiveScroll({
+        el: document.querySelector('[data-scroll-container]'),
+        smooth: true,
+        smartphone: {
+            smooth: true
+        },
+        tablet: {
+            smooth: true
+        },
+        smoothMobile:1,
+        lerp: 0.07,
+        multitplier: 1.2,
+    });
+},200)
 
 window.mobileAndTabletCheck = function() {
     let check = false;
